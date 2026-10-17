@@ -22,10 +22,15 @@ The source code is published at [GitHub](https://github.com/ShawnZhong/JsSpim/)
 - **Highlight** on changed registers, data segment, and stack
 - **Radix** support for all values
 
+## Install / offline use
+
+Open JsSpim online and use **Install app** when it appears, or your browser's install option. On iPhone or iPad, use Safari's Share menu → **Add to Home Screen**.
+
+Let the first online visit finish loading so the service worker can cache the app. After that, reopen JsSpim offline to run all bundled examples or upload your own assembly files. Installation is optional for offline use. Service workers require HTTPS (as on GitHub Pages) or localhost.
+
 ## Built With
 
 - [Spim](http://spimsimulator.sourceforge.net/) - The original simulator written in C++
 - [Emscripten](https://emscripten.org/) - Toolchain to compile C++ source code to WebAssembly using the LLVM IR.
 - [Bootstrap](https://getbootstrap.com/)  - Using the CSS library to build the UI
 - [highlight.js](https://highlightjs.org/) - For highlighting the source code
-

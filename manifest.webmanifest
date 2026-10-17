@@ -1,0 +1,28 @@
+{
+  "name": "JsSpim – MIPS32 Simulator",
+  "short_name": "JsSpim",
+  "description": "JsSpim is an online MIPS32 simulator based on Prof. James Larus's Spim. It supports breakpoints, custom execution speed, ASCII memory view, highlight on changed registers/memory and radix display for memory.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#f8f9fa",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

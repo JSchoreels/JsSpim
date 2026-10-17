@@ -10,6 +10,13 @@
     <meta name="keywords"
           content="spim, qtspim, simulator, mips, mips32, cpu, emulator, assembler, compiler, instruction, register, execution">
 
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#f8f9fa">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/xcode.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -48,6 +55,7 @@
             </div>
         </div>
     </div>
+    <button id="install-button" type="button" class="btn btn-primary btn-sm" hidden>Install app</button>
 </nav>
 
 <div id="regs-panel" class="card">
@@ -236,5 +244,27 @@
 <script type='text/javascript' src="js/register.js"></script>
 <script type='text/javascript' src="js/execution.js"></script>
 <script async type="text/javascript" src="wasm.js"></script>
+<script type='text/javascript'>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').catch(error => console.error('Service worker registration failed:', error));
+    }
+
+    let installPrompt;
+    const installButton = document.getElementById('install-button');
+    window.addEventListener('beforeinstallprompt', event => {
+        event.preventDefault();
+        installPrompt = event;
+        installButton.hidden = false;
+    });
+    installButton.addEventListener('click', () => {
+        installPrompt.prompt();
+        installPrompt = null;
+        installButton.hidden = true;
+    });
+    window.addEventListener('appinstalled', () => {
+        installPrompt = null;
+        installButton.hidden = true;
+    });
+</script>
 </body>
 </html>
